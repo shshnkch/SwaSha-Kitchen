@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= pageTitle %></title>
+    <link rel="stylesheet" href="/styles/cart.css">
+    <link rel="stylesheet" href="/styles/global.css">
+    <script src="/scripts/darkmode.js" defer></script>
+</head>
+<body>
+    <!-- Cart Page Container -->
+    <div id="cart-page" class="cart-page">
+        <!-- Cart Header -->
+        <div id="cart-header" class="section-header">
+            <h1>Your Cart</h1>
+        </div>
+
+        <!-- Cart Content -->
+        <div id="cart-content" class="cart-content">
+            <% if (cartItems.length > 0) { %>
+                <!-- Cart Items Table -->
+                <table id="cart-items" class="cart-items">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% cartItems.forEach(item => { %>
+                            <tr class="cart-item">
+                                <td class="item-name"><%= item.menuItem.name %></td>
+                                <td class="item-price">₹<%= item.menuItem.price %></td>
+                                <td class="item-quantity"><%= item.quantity %></td>
+                                <td class="item-action">
+                                    <form action="/cart/remove/<%= item.menuItem._id %>" method="POST" class="remove-form">
+                                        <button type="submit" class="remove-button">Remove</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+
+                <!-- Total and Checkout Section -->
+                <div id="checkout-section" class="checkout-section">
+                    <hr>
+                    <h2 class="total">Total: ₹<%= total %></h2>
+                    <form action="/checkout" method="POST" class="checkout-form">
+                        <button type="submit" class="checkout-button">Checkout</button>
+                    </form>
+                </div>
+            <% } else { %>
+                <!-- Empty Cart Message -->
+                <div id="empty-cart" class="empty-cart">
+                    <p>Your cart is empty.</p>
+                </div>
+            <% } %>
+        </div>
+    </div>
+</body>
+</html>

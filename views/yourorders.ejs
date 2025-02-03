@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= pageTitle %></title>
+    <link rel="stylesheet" href="/styles/yourorders.css">
+    <link rel="stylesheet" href="/styles/global.css">
+    <script src="/scripts/darkmode.js"></script>
+</head>
+<body>
+    <!-- Your Orders Page Container -->
+    <div id="your-orders-page" class="your-orders-page">
+        <!-- Your Orders Header -->
+        <div id="your-orders-header" class="section-header">
+            <h1>Your Orders</h1>
+        </div>
+
+        <!-- Orders List -->
+        <div id="orders-list" class="orders-list">
+            <% if (orders.length === 0) { %>
+                <p class="no-orders">You have no orders yet.</p>
+            <% } else { %>
+                <% orders.forEach(order => { %>
+                    <!-- Order Container -->
+                    <div class="order-container">
+                        <h2 class="order-id">Order ID: <%= order._id %></h2>
+                        <p class="order-date">Order Date: <%= order.createdAt.toLocaleString() %></p>
+                        <p class="order-total">Total: ₹<%= order.total %></p>
+                        <p class="order-status status-<%= order.status.toLowerCase().replace(/ /g, '-') %>">
+                            Status: <%= order.status %>
+                        </p>
+                        <p class="order-address">Delivery Address: <%= order.address %></p>
+
+                        <!-- Order Items -->
+                        <div class="order-items">
+                            <h3 class="items-heading">Items:</h3>
+                            <ul class="items-list">
+                                <% order.cartItems.forEach(item => { %>
+                                    <li class="item">
+                                        <%= item.menuItem.name %> - ₹<%= item.menuItem.price %> x <%= item.quantity %>
+                                    </li>
+                                <% }) %>
+                            </ul>
+                        </div>
+                        <hr class="order-divider">
+                    </div>
+                <% }) %>
+            <% } %>
+        </div>
+    </div>
+</body>
+</html>

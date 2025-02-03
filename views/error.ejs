@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error</title>
+    <link rel="stylesheet" href="/styles/error.css">
+    <link rel="stylesheet" href="/styles/global.css">
+    <script src="/scripts/darkmode.js" defer></script>
+</head>
+<body>
+    <!-- Error Page Container -->
+    <div id="error-page" class="error-page">
+        <!-- Error Header -->
+        <div id="error-header" class="section-header">
+            <h1>Error: <%= message %></h1>
+        </div>
+
+        <!-- Error Information -->
+        <div id="error-info" class="error-info">
+            <p><strong>Status:</strong> <%= status || 500 %></p>
+            <p><strong>Message:</strong> <%= message %></p>
+            <% if (stack) { %>
+                <div class="stack-trace">
+                    <h3>Stack Trace:</h3>
+                    <pre><%= stack %></pre>
+                </div>
+            <% } %>
+        </div>
+    </div>
+</body>
+</html>

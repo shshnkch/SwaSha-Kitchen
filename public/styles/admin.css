@@ -1,0 +1,122 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+.admin-registration {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Header */
+.section-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.section-header h1 {
+  color: #6c9bcf; /* Light blue for headings */
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.section-header h2 {
+  color: #333;
+  font-size: 1.5rem;
+}
+
+/* Error Message */
+.error {
+  background-color: #ffebee;
+  color: #c62828;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Registration Form */
+.registration-form {
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.form-group input:focus {
+  border-color: #6c9bcf;
+  outline: none;
+}
+
+/* Button Container */
+.button-container {
+  display: flex;
+  justify-content: center; /* Center the button horizontally */
+  margin-top: 20px; /* Add some space above the button */
+}
+
+/* Submit Button */
+.btn {
+  background: linear-gradient(
+    to right,
+    #6c9bcf,
+    #a98fd3
+  ); /* Light blue to light purple */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background: linear-gradient(
+    to right,
+    #5a8abf,
+    #987fc3
+  ); /* Darker gradient on hover */
+}
+
+/* Login Prompt */
+.login-prompt {
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.login-prompt a {
+  color: #6c9bcf;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.login-prompt a:hover {
+  color: #a98fd3; /* Light purple for hover */
+}

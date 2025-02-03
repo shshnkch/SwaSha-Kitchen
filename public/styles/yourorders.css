@@ -1,0 +1,117 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+.your-orders-page {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Header */
+.section-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.section-header h1 {
+  color: #6C9BCF; /* Light blue for headings */
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+/* Orders List */
+.orders-list {
+  margin-top: 20px;
+}
+
+.no-orders {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #555;
+}
+
+/* Order Container */
+.order-container {
+  background-color: #f1f1f1;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.order-container h2 {
+  color: #6C9BCF; /* Light blue for headings */
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.order-container p {
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+}
+
+/* Order Status Colors */
+.order-status {
+  font-weight: bold;
+}
+
+.status-pending {
+  color: #FFA500; /* Orange for Pending */
+}
+
+.status-cancelled {
+  color: #FF0000; /* Red for Cancelled */
+}
+
+.status-preparing {
+  color: #6C9BCF; /* Light blue for Preparing */
+}
+
+.status-out-for-delivery {
+  color: #FFD700; /* Gold for Out For Delivery */
+}
+
+.status-delivered {
+  color: #4CAF50; /* Green for Delivered */
+}
+
+/* Order Items */
+.order-items {
+  margin-top: 15px;
+}
+
+.order-items h3 {
+  color: #6C9BCF; /* Light blue for headings */
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.items-list {
+  list-style: none;
+  padding: 0;
+}
+
+.items-list .item {
+  background-color: white;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+/* Order Divider */
+.order-divider {
+  border: 0;
+  height: 1px;
+  background-color: #ddd;
+  margin: 20px 0;
+}

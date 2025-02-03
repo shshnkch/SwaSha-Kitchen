@@ -1,0 +1,64 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+.error-page {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Header */
+.section-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.section-header h1 {
+  color: #ff0000; /* Red for error headings */
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+/* Error Information */
+.error-info {
+  margin-top: 20px;
+}
+
+.error-info p {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.error-info strong {
+  color: #6c9bcf; /* Light blue for emphasis */
+}
+
+/* Stack Trace */
+.stack-trace {
+  margin-top: 20px;
+}
+
+.stack-trace h3 {
+  color: #6c9bcf; /* Light blue for headings */
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.stack-trace pre {
+  background-color: #f1f1f1;
+  padding: 15px;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-size: 1rem;
+  line-height: 1.4;
+}

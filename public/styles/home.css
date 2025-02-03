@@ -1,0 +1,140 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+.section {
+  padding: 40px 20px;
+  margin: 20px auto;
+  max-width: 1200px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1,
+h2 {
+  color: #6c9bcf; /* Light blue for headings */
+}
+
+a {
+  text-decoration: none;
+  color: #6c9bcf;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #a98fd3; /* Light purple for hover */
+}
+
+/* Error Message
+.error {
+  background-color: #ffebee;
+  color: #c62828;
+  padding: 10px;
+  border-radius: 4px;
+  margin: 20px auto;
+  max-width: 1200px;
+  text-align: center;
+} */
+
+/* Introduction Section */
+.intro {
+  text-align: center;
+  background: linear-gradient(
+    to right,
+    #6c9bcf,
+    #a98fd3
+  ); /* Light blue to light purple */
+  color: white;
+  padding: 60px 20px;
+}
+
+.intro h1 {
+  color: white;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.intro p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.intro .btn {
+  background-color: white;
+  color: #6c9bcf;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.intro .btn:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #a98fd3;
+}
+
+/* About Us Section */
+.about {
+  background-color: white;
+}
+
+.about h2 {
+  margin-bottom: 20px;
+}
+
+.about p {
+  font-size: 1.1rem;
+}
+
+/* Services Section */
+.services {
+  background-color: white;
+}
+
+.services h2 {
+  margin-bottom: 20px;
+}
+
+.services-list {
+  list-style: none;
+  padding: 0;
+}
+
+.services-list li {
+  background-color: #f1f1f1;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 1.1rem;
+}
+
+/* Testimonials Section */
+.testimonials {
+  background-color: white;
+}
+
+.testimonials h2 {
+  margin-bottom: 20px;
+}
+
+.testimonial {
+  background-color: #f1f1f1;
+  padding: 15px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+
+.testimonial p {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.testimonial strong {
+  color: #6c9bcf;
+}

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= pageTitle %></title>
+    <link rel="stylesheet" href="/styles/adminmenu.css">
+    <link rel="stylesheet" href="/styles/global.css">
+    <script src="/scripts/darkmode.js" defer></script>
+    <script src="/scripts/category.js"></script>
+</head>
+<body>
+    <!-- Admin Menu Page Container -->
+    <div id="admin-menu-page" class="admin-menu-page">
+        <!-- Admin Menu Header -->
+        <div id="admin-menu-header" class="section-header">
+            <h1>Admin Menu</h1>
+        </div>
+
+        <!-- Add Item Section -->
+        <div id="add-item-section" class="add-item-section">
+            <h2>Add New Item</h2>
+            <form action="/menu/add" method="POST" enctype="multipart/form-data" class="add-item-form">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Description</th>
+                            <th>Category</th>
+                            <th>Image</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="text" name="name" placeholder="Item Name" required></td>
+                            <td><input type="number" name="price" step="1" placeholder="Item Price" required></td>
+                            <td><input type="text" name="description" placeholder="Item Description" required></td>
+                            <td><select id="categoryDropdown">
+                                <option value="">Category</option>
+                            </select></td>
+                            <td><input type="file" name="image" accept="image/*"></td>
+                            <td><button type="submit" class="add-button">Add Item</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+
+        <!-- Existing Items Section -->
+        <div id="existing-items-section" class="existing-items-section">
+            <h2>Menu Items</h2>
+            <table class="menu-items-table">
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Description</th>
+                        <th>Category</th>
+                        <th>Active</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% menuItems.forEach(item => { %>
+                        <tr class="menu-item">
+                            <td class="item-image">
+                                <% if (item.image) { %>
+                                    <img src="/uploads/<%= item.image %>" alt="<%= item.name %>">
+                                <% } else { %>
+                                    <span>No Image</span>
+                                <% } %>
+                            </td>
+                            <td class="item-name">
+                                <input type="text" name="name" value="<%= item.name %>" form="edit-<%= item._id %>" required>
+                            </td>
+                            <td class="item-price">
+                                <input type="number" name="price" value="<%= item.price %>" form="edit-<%= item._id %>" required>
+                            </td>
+                            <td class="item-description">
+                                <input type="text" name="description" value="<%= item.description %>" form="edit-<%= item._id %>" required>
+                            </td>
+                            <td class="item-category">
+                                <select name="category" form="edit-<%= item._id %>">
+                                    <% categories.forEach(category => { %>
+                                        <option value="<%= category %>" <%= item.category === category ? 'selected' : '' %>>
+                                            <%= category %>
+                                        </option>
+                                    <% }) %>
+                                </select>
+                            </td>
+                            <td class="item-active">
+                                <input type="checkbox" name="isActive" <%= item.isActive ? 'checked' : '' %> form="edit-<%= item._id %>">
+                            </td>
+                            <td class="item-actions">
+                                <form id="edit-<%= item._id %>" action="/menu/edit/<%= item._id %>" method="POST" enctype="multipart/form-data" class="edit-form">
+                                    <input type="file" name="image" accept="image/*">
+                                    <button type="submit" class="save-button">Save Changes</button>
+                                </form>
+                                <form action="/menu/delete/<%= item._id %>" method="POST" class="delete-form">
+                                    <button type="submit" class="delete-button">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

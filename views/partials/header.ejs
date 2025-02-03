@@ -1,0 +1,33 @@
+<header class="navbar">
+    <div class="container">
+        <a href="/" class="logo-link"><h1 class="logo">SwaSha Kitchen</h1></a>
+        <nav class="nav">
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/menu">Menu</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <% if(user){ %>
+                    <li><span class="welcome-text">Welcome, <%= user.name %> (<%= user.email %>)</span></li>
+                    <% if(user.role === 'admin') {%>
+                        <li><a href="/order/openorders">View Open Orders</a></li>
+                        <li><a href="/order/closedorders">View Closed Orders</a></li>
+                    <% } else { %>
+                        <li><a href="/cart">Cart<i class="fas fa-shopping-cart"></i></a></li>
+                        <li><a href="/order/all">Your Orders</a></li>
+                    <% } %>
+                    <li><a href="/user/logout">Logout</a></li>
+                <% } else {%>
+                    <li><a href="/user/login">Login</a></li>
+                    <li><a href="/user/signup">Sign Up</a></li>
+                <% } %>
+                    <li>
+                    <label class="dark-mode-switch">
+                        <input type="checkbox" id="dark-mode-toggle">
+                        <span class="slider round"></span>
+                    </label>
+                    </li>
+            </ul>
+        </nav>
+    </div>
+</header>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= pageTitle %></title>
+    <link rel="stylesheet" href="/styles/orderconfirmation.css">
+    <link rel="stylesheet" href="/styles/global.css">
+    <script src="/scripts/darkmode.js" defer></script>
+</head>
+<body>
+    <!-- Order Confirmation Page Container -->
+    <div id="order-confirmation-page" class="order-confirmation-page">
+        <!-- Order Confirmation Header -->
+        <div id="order-confirmation-header" class="section-header">
+            <h1>Order Confirmation</h1>
+            <h2>Thank you for your order!</h2>
+        </div>
+
+        <!-- Order Details -->
+        <div id="order-details" class="order-details">
+            <p>Your order has been placed successfully. Here are the details:</p>
+            <div class="order-info">
+                <h3>Order ID: <%= order._id %></h3>
+                <p>Status: <%= order.status %></p>
+                <p>Total: ₹<%= order.total %></p>
+                <p>Delivery Address: <%= order.address %></p>
+            </div>
+        </div>
+
+        <!-- Order Items -->
+        <div id="order-items" class="order-items">
+            <h3>Items in your order:</h3>
+            <ul class="items-list">
+                <% order.cartItems.forEach(item => { %>
+                    <li class="item">
+                        <strong><%= item.menuItem.name %></strong> - ₹<%= item.menuItem.price %> x <%= item.quantity %>
+                    </li>
+                <% }) %>
+            </ul>
+        </div>
+
+        <!-- Navigation Links -->
+        <div id="navigation-links" class="navigation-links">
+            <p><a href="/menu" class="back-to-menu">Back to Menu</a></p>
+            <p><a href="/order/all" class="view-all-orders">View All Orders</a></p>
+        </div>
+    </div>
+</body>
+</html>

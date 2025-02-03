@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= pageTitle %></title>
+    <link rel="stylesheet" href="/styles/home.css">
+    <link rel="stylesheet" href="/styles/global.css">
+    <script src="/scripts/darkmode.js"></script>
+</head>
+<body>
+    <!-- Error Message Section -->
+    <% if (typeof error !== 'undefined') {%> 
+        <div id="error-message" class="error">
+            <p style="color: red;"><%= error %></p> 
+        </div>
+    <% } %>
+
+    <!-- Introduction Section -->
+    <div id="intro-section" class="section intro">
+        <h1>Welcome to SwaSha Kitchen</h1>
+        <p>Your favorite destination for delicious meals, made fresh with love.</p>
+        <a href="/menu" class="btn">Browse Menu</a>
+    </div>
+
+    <!-- About Us Section -->
+    <div id="about-section" class="section about">
+        <h2>About Us</h2>
+        <p>At SwaSha Kitchen, we serve a variety of mouthwatering dishes made with high-quality ingredients. Whether you're craving a quick snack or a full-course meal, we've got something for everyone!</p>
+    </div>
+
+    <!-- Services Section -->
+    <div id="services-section" class="section services">
+        <h2>Our Services</h2>
+        <ul class="services-list">
+            <li>Fast Delivery</li>
+            <li>Online Ordering</li>
+            <li>Customizable Menu</li>
+        </ul>
+    </div>
+
+    <!-- Testimonials Section -->
+    <div id="testimonials-section" class="section testimonials">
+        <h2>What Our Customers Say</h2>
+        <div class="testimonial">
+            <p>"The food was amazing, and the delivery was quick. Definitely coming back!"</p>
+            <p><strong>- Swati Handi</strong></p>
+        </div>
+        <div class="testimonial">
+            <p>"Best meal I've had in a long time. Highly recommend!"</p>
+            <p><strong>- Jane Smith</strong></p>
+        </div>
+    </div>
+</body>
+</html>

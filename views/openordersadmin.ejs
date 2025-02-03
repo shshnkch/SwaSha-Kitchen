@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= pageTitle %></title>
+    <link rel="stylesheet" href="/styles/openordersadmin.css">
+    <link rel="stylesheet" href="/styles/global.css">
+    <script src="/scripts/darkmode.js" defer></script>
+</head>
+<body>
+    <!-- Open Orders Admin Page Container -->
+    <div id="open-orders-admin-page" class="open-orders-admin-page">
+        <!-- Open Orders Header -->
+        <div id="open-orders-header" class="section-header">
+            <h1>Open Orders - Admin Panel</h1>
+        </div>
+
+        <!-- Open Orders Table -->
+        <div id="open-orders-table" class="open-orders-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Order Date</th>
+                        <th>Items</th>
+                        <th>Total</th>
+                        <th>Delivery Address</th>
+                        <th>User</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% openOrders.forEach(order => { %>
+                        <tr class="order-row">
+                            <td class="order-id"><%= order._id %></td>
+                            <td class="order-date"><%= order.createdAt.toLocaleString() %></td>
+                            <td class="order-items">
+                                <ul class="items-list">
+                                    <% order.cartItems.forEach(item => { %>
+                                        <li class="item">
+                                            <%= item.menuItem.name %> - ₹<%= item.menuItem.price %> x <%= item.quantity %>
+                                        </li>
+                                    <% }) %>
+                                </ul>
+                            </td>
+                            <td class="order-total">₹<%= order.total %></td>
+                            <td class="order-address"><%= order.address %></td>
+                            <td class="order-user">
+                                <%= order.user.name %> (<%= order.user.email %>)
+                            </td>
+                            <td class="order-status">
+                                <form action="/order/update-status" method="POST" class="status-form">
+                                    <input type="hidden" name="orderId" value="<%= order._id %>">
+                                    <select name="status" class="status-select">
+                                        <option value="Pending" <%= order.status === 'Pending' ? 'selected' : '' %>>Pending</option>
+                                        <option value="Preparing" <%= order.status === 'Preparing' ? 'selected' : '' %>>Preparing</option>
+                                        <option value="Out For Delivery" <%= order.status === 'Out For Delivery' ? 'selected' : '' %>>Out For Delivery</option>
+                                        <option value="Delivered" <%= order.status === 'Delivered' ? 'selected' : '' %>>Delivered</option>
+                                        <option value="Cancelled" <%= order.status === 'Cancelled' ? 'selected' : '' %>>Cancelled</option>
+                                    </select>
+                                    <button type="submit" class="update-button">Update</button>
+                                </form>
+                            </td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

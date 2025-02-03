@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= pageTitle %></title>
+    <link rel="stylesheet" href="/styles/checkout.css">
+    <link rel="stylesheet" href="/styles/global.css">
+    <script src="/scripts/darkmode.js" defer></script>
+</head>
+<body>
+    <!-- Checkout Page Container -->
+    <div id="checkout-page" class="checkout-page">
+        <!-- Checkout Header -->
+        <div id="checkout-header" class="section-header">
+            <h1>Checkout</h1>
+            <h2>Order Summary</h2>
+        </div>
+
+        <!-- Order Summary Table -->
+        <div id="order-summary" class="order-summary">
+            <table class="cart-items">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% cartItems.forEach(item => { %>
+                        <tr class="cart-item">
+                            <td class="item-name"><%= item.menuItem.name %></td>
+                            <td class="item-price">₹<%= item.menuItem.price %></td>
+                            <td class="item-quantity"><%= item.quantity %></td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+            <hr>
+            <h3 class="total">Total: ₹<%= total %></h3>
+        </div>
+
+        <!-- Delivery Address Form -->
+        <div id="delivery-address" class="delivery-address">
+            <p><strong>Delivery Address:</strong></p>
+            <form action="/order/confirmation" method="POST" class="checkout-form">
+                <textarea name="address" rows="4" cols="50" placeholder="Enter your delivery address" required><%= address %></textarea><br>
+                
+                <!-- Hidden Inputs for Cart Items -->
+                <% cartItems.forEach((item, index) => { %>
+                    <input type="hidden" name="cartItems[<%= index %>][name]" value="<%= item.menuItem.name %>">
+                    <input type="hidden" name="cartItems[<%= index %>][price]" value="<%= item.menuItem.price %>">
+                    <input type="hidden" name="cartItems[<%= index %>][quantity]" value="<%= item.quantity %>">
+                    <input type="hidden" name="total" value="<%= total %>">
+                <% }) %>
+
+                <!-- Payment Method -->
+                <p><strong>Payment Method: Cash on Delivery</strong></p>
+
+                <!-- Buttons -->
+                <div class="button-container">
+                    <a href="/cart" class="back-button">Go Back to Cart</a>
+                    <button type="submit" class="confirm-button">Confirm Order</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

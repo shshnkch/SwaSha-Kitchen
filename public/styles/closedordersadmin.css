@@ -1,0 +1,93 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+.closed-orders-admin-page {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Header */
+.section-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.section-header h1 {
+    color: #6C9BCF; /* Light blue for headings */
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+/* Closed Orders Table */
+.closed-orders-table {
+    overflow-x: auto; /* Enable horizontal scrolling for small screens */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table th, table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color: #6C9BCF; /* Light blue for table headers */
+    color: white;
+}
+
+table tr:hover {
+    background-color: #f1f1f1; /* Light gray for hover effect */
+}
+
+/* Order Items List */
+.items-list {
+    list-style: none;
+    padding: 0;
+}
+
+.items-list .item {
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+/* Order Status */
+.order-status {
+    font-weight: bold;
+}
+
+/* Status Colors */
+.status-pending {
+    color: #FFA500; /* Orange for Pending */
+}
+
+.status-cancelled {
+    color: #FF0000; /* Red for Cancelled */
+}
+
+.status-preparing {
+    color: #6C9BCF; /* Light blue for Preparing */
+}
+
+.status-out-for-delivery {
+    color: #FFD700; /* Gold for Out For Delivery */
+}
+
+.status-delivered {
+    color: #4CAF50; /* Green for Delivered */
+}

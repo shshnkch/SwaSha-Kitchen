@@ -1,0 +1,166 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+.admin-menu-page {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Header */
+.section-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.section-header h1 {
+  color: #6c9bcf; /* Light blue for headings */
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+/* Add Item Section */
+.add-item-section {
+  margin-bottom: 40px;
+}
+
+.add-item-section h2 {
+  color: #6c9bcf; /* Light blue for headings */
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.add-item-form table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.add-item-form th,
+.add-item-form td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.add-item-form input, select {
+  width: 100%;
+  padding: 8px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.add-button {
+  background-color: #6c9bcf; /* Light blue for buttons */
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-button:hover {
+  background-color: #5a8abf; /* Darker blue on hover */
+}
+
+/* Existing Items Section */
+.existing-items-section h2 {
+  color: #6c9bcf; /* Light blue for headings */
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.menu-items-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.menu-items-table th,
+.menu-items-table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.menu-items-table img {
+  max-width: 100px;
+  height: auto;
+  border-radius: 4px;
+}
+
+.menu-items-table input, select {
+  width: 100%;
+  padding: 8px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+
+
+.save-button {
+  background-color: #4caf50; /* Green for save button */
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.save-button:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+
+.delete-button {
+  background-color: #ff4d4d; /* Red for delete button */
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+  background-color: #cc0000; /* Darker red on hover */
+}
+
+/* Form Layout */
+.edit-form,
+.delete-form {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+/* Hide spinners for number inputs */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Increase the size of the Name input */
+input[name="name"] {
+    width: 150px;
+}
+
+/* Make the Description input a rectangle box */
+input[name="description"] {
+    width: 325px;
+    height: 40px;
+    resize: none;
+}

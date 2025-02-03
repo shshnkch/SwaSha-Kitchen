@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= pageTitle %></title>
+    <link rel="stylesheet" href="/styles/menu.css">
+    <link rel="stylesheet" href="/styles/global.css">
+    <script src="/scripts/darkmode.js" defer></script>
+    <script src="/scripts/quantity.js"></script>
+</head>
+<body>
+    <!-- Menu Page Container -->
+    <div id="menu-page" class="menu-page">
+        <!-- Menu Header -->
+        <div id="menu-header" class="section-header">
+            <h1>Menu</h1>
+            <% if (typeof error !== 'undefined') { %> 
+                <p class="error-message"><%= error %></p> 
+            <% } %>
+        </div>
+
+        <!-- Menu Table -->
+        <div id="menu-table" class="menu-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Price (in Rs.)</th>
+                        <th>Description</th>
+                        <th>Category</th>
+                        <th>Quantity</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% menuItems.forEach(item => { %>
+                        <% if(item.isActive) { %>
+                            <tr>
+                                <td>
+                                    <% if(item.image) { %>
+                                        <img src="./uploads/<%= item.image %>" alt="<%= item.image %>" class="menu-item-image">
+                                    <% } else { %>
+                                        No image available
+                                    <% } %>
+                                </td>
+                                <td><%= item.name %></td>
+                                <td>₹<%= item.price %></td>
+                                <td><%= item.description %></td>
+                                <td><%= item.category %></td>
+                                <td>
+                                    <div class="quantity-control">
+                                        <button type="button" onclick="updateQuantity(this, -1)">-</button>
+                                        <input type="text" class="quantity-input" value="1" readonly>
+                                        <button type="button" onclick="updateQuantity(this, 1)">+</button>
+                                    </div>
+                                </td>
+                                <td>
+                                    <form action="/cart/add/<%= item._id %>" method="POST" onsubmit="return validateAndLog(this)">
+                                        <input type="hidden" name="menuItemId" value="<%= item._id %>">
+                                        <input type="hidden" name="quantity" class="hidden-quantity-input" value="1">
+                                        <button type="submit">Add to Cart</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        <% } %>
+                    <% }); %>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- View Cart Link -->
+        <div id="view-cart" class="view-cart">
+            <h3><a href="/cart">View Cart</a></h3>
+        </div>
+    </div>
+</body>
+</html>

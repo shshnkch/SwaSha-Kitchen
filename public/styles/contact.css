@@ -1,0 +1,52 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+.contact-page {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Header */
+.section-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.section-header h1 {
+  color: #6c9bcf; /* Light blue for headings */
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.section-header p {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+/* Contact Information */
+.contact-info {
+  background-color: #f1f1f1;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.contact-info p {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.contact-info strong {
+  color: #6c9bcf; /* Light blue for emphasis */
+}

@@ -1,0 +1,33 @@
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #696969;
+    /* color: #ffffff; */
+}
+
+body.dark-mode .navbar {
+    background-color: #696969;
+    /* color: #ffffff; */
+}
+
+body.dark-mode .nav-links a {
+    color: #ffffff;
+}
+
+body.dark-mode .menu-page {
+    background-color: #696969;
+    /* color: #ffffff; */
+}
+
+body.dark-mode table {
+    background-color: #696969;
+    /* color: #ffffff; */
+}
+
+body.dark-mode table th,
+body.dark-mode table td {
+    border-color: #444;
+}
+
+body.dark-mode .error-message {
+    color: #ff6b6b;
+}
