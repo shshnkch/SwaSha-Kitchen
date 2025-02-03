@@ -1,11 +1,11 @@
 {
   "name": "food-ordering-app",
   "version": "1.0.0",
-  "description": "A basic website for a restaurant where customers can sign up and place orders",
+  "description": "SwaSha Kitchen is a user-friendly online food ordering platform designed for a single restaurant. It allows customers to seamlessly browse the menu, add items to their cart, place orders, and track their status in real time. The system ensures a smooth experience for both customers and restaurant staff with an intuitive interface and efficient order management.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node index.js"
   },
   "author": "Shashank Chaurasia",
   "license": "ISC",
