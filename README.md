@@ -28,4 +28,4 @@ Authentication: JWT
 
 Deployment: Render.com
 
-SwaSha Kitchen is built with scalability in mind, providing a foundation for expansion to multiple restaurants in the future. 🚀
+SwaSha Kitchen is built with scalability in mind, providing a foundation for expansion to multiple restaurants in the future.
