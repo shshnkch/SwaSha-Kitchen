@@ -16,6 +16,15 @@
         </div>
     <% } %>
 
+    <% if (alertMessage) { %>
+        <div class="custom-alert">
+            <div class="message">
+                <%- alertMessage %>
+            </div>
+            <button onclick="this.parentElement.style.display='none';">×</button>
+        </div>
+    <% } %>
+
     <!-- Introduction Section -->
     <div id="intro-section" class="section intro">
         <h1>Welcome to SwaSha Kitchen</h1>
