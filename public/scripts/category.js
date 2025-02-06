@@ -14,7 +14,7 @@
 fetch('/menu/categories')
     .then(response => response.json())
     .then(categories => {
-        const dropdown = document.getElementById('categoryDropdown');
+        const dropdown = document.getElementById('category');
         categories.forEach(category => {
             let option = document.createElement('option');
             option.value = category;
