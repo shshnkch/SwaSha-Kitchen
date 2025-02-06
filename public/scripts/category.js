@@ -26,8 +26,3 @@ fetch('/menu/categories')
         });
     })
     .catch(error => console.error('Error fetching categories:', error));
-
-function toggleCategory(header) {
-    const content = header.nextElementSibling;
-    content.classList.toggle('active');
-}
