@@ -2,8 +2,9 @@ const express = require('express');
 const MenuItem = require('../models/menuitems');
 const jwt = require('jsonwebtoken');
 const multer = require('multer');
-const cloudinary = require('cloudinary').v2;  // Import Cloudinary
-const multerStorageCloudinary = require('multer-storage-cloudinary');  // Import Multer Storage for Cloudinary
+const cloudinary = require('cloudinary').v2;
+const multerStorageCloudinary = require('multer-storage-cloudinary'); 
+const multerStorageCloudinary = require('multer-storage-cloudinary').CloudinaryStorage;
 const router = express.Router();
 
 // Set up Cloudinary configuration
