@@ -7,7 +7,6 @@ const router = express.Router();
 
 router.use('/uploads', express.static('uploads'));
 router.use((req, res, next) => {
-    res.locals.pageTitle = "SwaSha Kitchen - Menu";
     next();
 });
 
@@ -27,15 +26,15 @@ router.get('/menu', async (req, res, next) => {
         const token = req.cookies.token;
         const menuItems = await MenuItem.find().sort({ category: 1 });
         if (!token) {
-            return res.render('menu', {menuItems, pageTitle: "SwaSha Kitchen - Menu"});
+            return res.render('menu', {menuItems});
         }
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
         req.user = decoded;
         if(decoded.role === 'admin'){
             const categories = await MenuItem.schema.path('category').enumValues;
-            res.render('adminmenu', {user: decoded, menuItems, categories, pageTitle: "SwaSha Kitchen - Admin Menu" });
+            res.render('adminmenu', {user: decoded, menuItems, categories});
         } else{
-            res.render('menu', {menuItems, pageTitle: "SwaSha Kitchen - Menu"});
+            res.render('menu', {menuItems});
         }
     } catch(err){
         next(err);
@@ -55,7 +54,7 @@ router.post('/menu/add', upload.single('image'), async (req, res, next) => {
             image: image
         });
         await newMenuItem.save();
-        res.redirect('/menu?pageTitle=SwaSha Kitchen - Menu');
+        res.redirect('/menu');
     } catch(err){
         next(err);
     }
@@ -77,7 +76,7 @@ router.post('/menu/edit/:id', upload.single('image'), async (req, res, next) => 
             updateData.image = image;
         }
         await MenuItem.findByIdAndUpdate(id, updateData, { new: true });
-        res.redirect('/menu?pageTitle=SwaSha Kitchen - Menu');
+        res.redirect('/menu');
     } catch (err) {
         console.error("Error updating menu item:", err);
         next(err);
@@ -88,7 +87,7 @@ router.post('/menu/delete/:id', async (req, res, next) => {
     try {
         const { id } = req.params;
         await MenuItem.findByIdAndDelete(id);
-        res.redirect('/menu?pageTitle=SwaSha Kitchen - Menu');
+        res.redirect('/menu');
     } catch (err) {
         console.error("Error deleting menu item:", err);
         next(err);

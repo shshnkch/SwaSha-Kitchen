@@ -4,7 +4,7 @@ const router = express.Router();
 
 router.get('/', (req, res, next) => {
     try{
-        res.render('home', {pageTitle: "SwaSha Kitchen - Home"});
+        res.render('home');
     } catch(err) {
         next(err);
     }
@@ -12,7 +12,7 @@ router.get('/', (req, res, next) => {
 
 router.get('/about', (req, res, next) => {
     try{
-        res.render('about', {pageTitle: "SwaSha Kitchen - About Us"});
+        res.render('about');
     } catch(err){
         next(err);
     }
@@ -20,7 +20,7 @@ router.get('/about', (req, res, next) => {
 
 router.get('/contact', (req, res, next) => {
     try{
-        res.render('contact', {pageTitle: "SwaSha Kitchen - Contact Us"});
+        res.render('contact');
     } catch(err){
         next(err);
     }

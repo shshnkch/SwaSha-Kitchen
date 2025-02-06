@@ -5,24 +5,24 @@ const User = require('../models/user');
 
 const router = express.Router();
 
-router.get('/user/login', (req, res, next) => {
+router.get('/login', (req, res, next) => {
     try{
-        res.render('login', {pageTitle: "SwaSha Kitchen - Login"});
+        res.render('login');
     } catch(err) {
         next(err);
     }
 });
 
-router.post('/user/login', async(req, res, next) => {
+router.post('/login', async(req, res, next) => {
     try{
         const {email, password} = req.body;
         const user = await User.findOne({email});
         if(!user){
-            return res.status(401).render('login', {error: 'Invalid email or password', pageTitle: "SwaSha Kitchen - Login"});
+            return res.status(401).render('login', {error: 'Invalid email or password'});
         }
         const validatePassword = await bcrypt.compare(password, user.password);
         if(!validatePassword){
-            return res.status(401).render('login', {error: 'Invalid email or password', pageTitle: "SwaSha Kitchen - Login"});
+            return res.status(401).render('login', {error: 'Invalid email or password'});
         }
         const token = jwt.sign({
             id: user._id,
@@ -32,30 +32,30 @@ router.post('/user/login', async(req, res, next) => {
             process.env.JWT_SECRET,
             {expiresIn: '1h'});
         res.cookie('token', token, { httpOnly: true, maxAge: 3600000 });
-        res.redirect('/menu?pageTitle=SwaSha Kitchen - Menu');
+        res.redirect('/menu');
     } catch(err){
         next(err);
     }
 });
 
-router.get('/user/signup', (req, res, next) => {
+router.get('/signup', (req, res, next) => {
     try{
-        res.render('signup', {pageTitle: "SwaSha Kitchen - Sign Up"});
+        res.render('signup');
     } catch(err) {
         next(err);
     }
 });
 
-router.post('/user/signup', async(req, res, next) => {
+router.post('/signup', async(req, res, next) => {
     const {name, email, password, phoneNumber, address} = req.body;
     try{
         const existingUser = await User.findOne({email});
         if(existingUser){
-            return res.status(409).render('signup', {error: 'Email already in use', pageTitle: "SwaSha Kitchen - Sign Up"});
+            return res.status(409).render('signup', {error: 'Email already in use'});
         }
         const existingPhoneNumber = await User.findOne({phoneNumber});
         if(existingPhoneNumber){
-            return res.status(409).render('signup', {error: 'Phone number already in use', pageTitle: "SwaSha Kitchen - Sign Up"});
+            return res.status(409).render('signup', {error: 'Phone number already in use'});
         }
         const hashedPassword = await bcrypt.hash(password, 12);
         const newUser = new User({
@@ -68,15 +68,15 @@ router.post('/user/signup', async(req, res, next) => {
             createdAt: Date.now()
         });
         await newUser.save();
-        res.status(201).redirect('/login?pageTitle=SwaSha Kitchen - Login');
+        res.status(201).redirect('/login');
     } catch(err){
-        res.status(500).render('signup', {error: 'Server error: Please try again later', pageTitle: "SwaSha Kitchen - Sign Up"});
+        res.status(500).render('signup', {error: 'Server error: Please try again later'});
     }
 });
 
-router.get('/user/logout', (req, res) => {
+router.get('/logout', (req, res) => {
     res.clearCookie('token');
-    res.redirect('/?pageTitle=SwaSha Kitchen - Home');
+    res.redirect('/');
 });
 
 module.exports = router;

@@ -11,7 +11,7 @@ router.get('/adminSetUp', (req, res, next) => {
         return res.status(403).render('home', {error: 'ACCESS DENIED', pageTitle: "SwaSha Kitchen - Home"});
     }
     try{
-        res.render('admin', {pageTitle: "SwaSha Kitchen - Admin Setup"});
+        res.render('admin');
     } catch(err){
         next(err);
     }
@@ -22,7 +22,7 @@ router.post('/adminSetUp', async (req, res, next) => {
     try{
         const existingAdmin = await User.findOne({email});
         if(existingAdmin){
-            return res.status(401).render('admin', {error: 'Email already in use', pageTitle: "SwaSha Kitchen - Admin Setup"});
+            return res.status(401).render('admin', {error: 'Email already in use'});
         }
         const hashedPassword = await bcrypt.hash(password, 12);
         const newAdmin = new User({
@@ -34,9 +34,9 @@ router.post('/adminSetUp', async (req, res, next) => {
             role: 'admin'
         });
         await newAdmin.save();
-        res.status(201).redirect('/user/login?pageTitle=SwaSha Kitchen - Login');
+        res.status(201).redirect('/login');
     } catch(err){
-        res.status(500).render('admin', {error: 'Server error: Please try again later', pageTitle: "SwaSha Kitchen - Admin Setup"});
+        res.status(500).render('admin', {error: 'Server error: Please try again later'});
     }
 });
 

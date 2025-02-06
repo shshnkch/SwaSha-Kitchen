@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= pageTitle %></title>
+    <title>SwaSha Kitchen</title>
     <link rel="stylesheet" href="/styles/signup.css">
     <link rel="stylesheet" href="/styles/global.css">
     <script src="/scripts/darkmode.js" defer></script>
@@ -25,7 +25,7 @@
         <% } %>
 
         <!-- Signup Form -->
-        <form id="signup-form" class="signup-form" action="/user/signup" method="POST">
+        <form id="signup-form" class="signup-form" action="/signup" method="POST">
             <!-- Name Field -->
             <div class="form-group">
                 <label for="name">Name</label>
@@ -64,7 +64,7 @@
 
         <!-- Login Prompt -->
         <div id="login-prompt" class="login-prompt">
-            <p>Already an user? <a href="/user/login">Log In</a></p>
+            <p>Already an user? <a href="/login">Log In</a></p>
         </div>
     </div>
 </body>
