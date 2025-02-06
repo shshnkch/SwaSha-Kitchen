@@ -13,7 +13,7 @@ router.post('/cart/add/:menuItemId', async (req, res, next) => {
         const token = req.cookies.token;
         const menuItems = await MenuItem.find();
         if(!token){
-            return res.status(401).render('menu', {menuItems, error: 'You must be logged in to add items to the cart.'});
+            return res.status(401).render('login', {menuItems, error: 'You must be logged in to add items to the cart.'});
         }
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
         const userId = decoded.id;
