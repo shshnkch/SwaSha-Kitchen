@@ -62,11 +62,11 @@ table tr:hover {
 }
 
 .menu-item-image {
-    max-width: 100px; /* Adjust width as needed */
-    height: auto;
-    display: block;
-    border-radius: 8px; /* Optional: Add rounded corners */
-  }
+  max-width: 100px; /* Adjust width as needed */
+  height: auto;
+  display: block;
+  border-radius: 8px; /* Optional: Add rounded corners */
+}
 
 /* Quantity Control */
 .quantity-control {
@@ -127,4 +127,27 @@ form button:hover {
 
 .view-cart a:hover {
   color: #a98fd3; /* Light purple for hover */
+}
+
+/* Collapsible categories */
+.category-header {
+  cursor: pointer;
+  padding: 10px;
+  background-color: #f1f1f1;
+  border: 1px solid #ddd;
+  margin-top: 10px;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.category-header:hover {
+  background-color: #ddd;
+}
+.category-content {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-top: none;
+  display: none;
+}
+.category-content.active {
+  display: block;
 }
