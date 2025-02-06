@@ -76,16 +76,20 @@ app.use((err, req, res, next) => {
     next(err);
 });
 
+app.use((req, res, next) => {
+    console.log(`Request URL: ${req.originalUrl}`);
+    next();
+  });
+  
+
 app.use((err, req, res, next) => {
     const status = err.status || 500;
-    // const message = process.env.NODE_ENV === 'development' ? err.message || 'Internal Server Error' : 'Something went wrong!';
-    // const stack = process.env.NODE_ENV === 'development' ? err.stack : null ;
-    const message = err.message;
-    const stack = err.stack;
+    const message = process.env.NODE_ENV === 'development' ? err.message || 'Internal Server Error' : 'Something went wrong!';
+    const stack = process.env.NODE_ENV === 'development' ? err.stack : null ;
     if(process.env.NODE_ENV === 'development'){
         console.error(err);
     }
-    console.error(err);
+    // console.error(err);
     res.status(status).render('error', { message, status, stack });
 });
 
