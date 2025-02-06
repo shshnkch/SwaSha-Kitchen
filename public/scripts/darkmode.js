@@ -24,3 +24,8 @@ document.getElementById('dark-mode-toggle').addEventListener('change', toggleDar
 
 // Load dark mode preference when the page loads
 window.addEventListener('load', loadDarkModePreference);
+
+function toggleMenu() {
+    const navLinks = document.querySelector(".nav-links");
+    navLinks.classList.toggle("active");
+}
