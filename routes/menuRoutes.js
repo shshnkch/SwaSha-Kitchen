@@ -2,42 +2,26 @@ const express = require('express');
 const MenuItem = require('../models/menuitems');
 const jwt = require('jsonwebtoken');
 const multer = require('multer');
-const path = require('path');
-const fs = require('fs');
+const cloudinary = require('cloudinary').v2;  // Import Cloudinary
+const multerStorageCloudinary = require('multer-storage-cloudinary');  // Import Multer Storage for Cloudinary
 const router = express.Router();
 
-// Ensure uploads directory exists
-const uploadsDir = './uploads';
-if (!fs.existsSync(uploadsDir)) {
-    fs.mkdirSync(uploadsDir);
-}
-
-// Serve static files from the "uploads" directory
-router.use('/uploads', express.static('uploads'));
-
-// Multer storage configuration for file uploads
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, uploadsDir);  // Set the destination folder for uploaded files
-    },
-    filename: (req, file, cb) => {
-        // Save the file with the current timestamp + original file extension
-        cb(null, Date.now() + path.extname(file.originalname));
-    }
+// Set up Cloudinary configuration
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-// File filter to allow only certain image types (JPEG, PNG, AVIF, WebP, etc.)
-const fileFilter = (req, file, cb) => {
-    const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/avif', 'image/webp'];
-    if (allowedTypes.includes(file.mimetype)) {
-        cb(null, true);
-    } else {
-        cb(new Error('Invalid file type'), false);  // Reject if file type is not allowed
-    }
-};
+// Configure Multer storage to upload images to Cloudinary
+const storage = multerStorageCloudinary({
+    cloudinary: cloudinary,
+    allowedFormats: ['jpg', 'jpeg', 'png', 'webp'],
+    transformation: [{ width: 500, height: 500, crop: 'limit' }]  // Optional: Resize images
+});
 
-// Multer configuration
-const upload = multer({ storage: storage, fileFilter: fileFilter, limits: { fileSize: 10 * 1024 * 1024 } }); // max file size: 10MB
+// Initialize multer with Cloudinary storage configuration
+const upload = multer({ storage });
 
 // Get the menu items
 router.get('/menu', async (req, res, next) => {
@@ -63,18 +47,18 @@ router.get('/menu', async (req, res, next) => {
     }
 });
 
-// Add new menu item
+// Add new menu item with image upload to Cloudinary
 router.post('/menu/add', upload.single('image'), async (req, res, next) => {
     try {
         const { name, price, description, category } = req.body;
-        const image = req.file ? req.file.filename : null;
+        const image = req.file ? req.file.path : null;  // Image URL from Cloudinary
 
         const newMenuItem = new MenuItem({
             name: name,
             price: price,
             description: description,
             category: category,
-            image: image
+            image: image  // Store Cloudinary image URL in the database
         });
 
         await newMenuItem.save();
@@ -84,12 +68,12 @@ router.post('/menu/add', upload.single('image'), async (req, res, next) => {
     }
 });
 
-// Edit an existing menu item
+// Edit an existing menu item (support image update)
 router.post('/menu/edit/:id', upload.single('image'), async (req, res, next) => {
     try {
         const { id } = req.params;
         const { name, price, description, category, isActive } = req.body;
-        const image = req.file ? req.file.filename : null;
+        const image = req.file ? req.file.path : null;  // Get Cloudinary image URL
 
         const updateData = {
             name,
