@@ -106,3 +106,82 @@ body {
 .navigation-links a:hover {
   color: #a98fd3; /* Light purple for hover */
 }
+
+/* Mobile Responsiveness */
+@media only screen and (max-width: 768px) {
+  .order-confirmation-page {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .section-header h1 {
+    font-size: 2rem;
+  }
+
+  .section-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .order-details p {
+    font-size: 1.1rem;
+  }
+
+  .order-info h3 {
+    font-size: 1.4rem;
+  }
+
+  .order-info p {
+    font-size: 1rem;
+  }
+
+  .order-items h3 {
+    font-size: 1.4rem;
+  }
+
+  .items-list .item {
+    font-size: 1rem;
+  }
+
+  .navigation-links a {
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .order-confirmation-page {
+    width: 95%;
+    padding: 10px;
+  }
+
+  .section-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .section-header h2 {
+    font-size: 1.3rem;
+  }
+
+  .order-details p {
+    font-size: 1rem;
+  }
+
+  .order-info h3 {
+    font-size: 1.2rem;
+  }
+
+  .order-info p {
+    font-size: 0.9rem;
+  }
+
+  .order-items h3 {
+    font-size: 1.2rem;
+  }
+
+  .items-list .item {
+    font-size: 0.9rem;
+  }
+
+  .navigation-links a {
+    font-size: 1rem;
+  }
+}

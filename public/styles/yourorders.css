@@ -115,3 +115,58 @@ body {
   background-color: #ddd;
   margin: 20px 0;
 }
+
+/* Mobile Responsiveness */
+@media only screen and (max-width: 768px) {
+  .your-orders-page {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .section-header h1 {
+    font-size: 2rem;
+  }
+
+  .order-container h2 {
+    font-size: 1.6rem;
+  }
+
+  .order-container p {
+    font-size: 1rem;
+  }
+
+  .order-items h3 {
+    font-size: 1.4rem;
+  }
+
+  .items-list .item {
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .your-orders-page {
+    width: 95%;
+    padding: 10px;
+  }
+
+  .section-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .order-container h2 {
+    font-size: 1.4rem;
+  }
+
+  .order-container p {
+    font-size: 1rem;
+  }
+
+  .order-items h3 {
+    font-size: 1.3rem;
+  }
+
+  .items-list .item {
+    font-size: 0.95rem;
+  }
+}

@@ -115,3 +115,60 @@ body {
 .signup-prompt a:hover {
   color: #a98fd3; /* Light purple for hover */
 }
+
+/* Mobile Responsiveness */
+@media only screen and (max-width: 768px) {
+  .login-page {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .section-header h1 {
+    font-size: 2rem;
+  }
+
+  .form-group label {
+    font-size: 1rem;
+  }
+
+  .form-group input {
+    font-size: 0.95rem;
+  }
+
+  .btn {
+    font-size: 0.9rem;
+    padding: 8px 18px;
+  }
+
+  .signup-prompt {
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .login-page {
+    width: 95%;
+    padding: 10px;
+  }
+
+  .section-header h1 {
+    font-size: 1.7rem;
+  }
+
+  .form-group label {
+    font-size: 0.95rem;
+  }
+
+  .form-group input {
+    font-size: 0.9rem;
+  }
+
+  .btn {
+    font-size: 0.8rem;
+    padding: 7px 15px;
+  }
+
+  .signup-prompt {
+    font-size: 0.9rem;
+  }
+}

@@ -109,8 +109,7 @@ body {
   box-sizing: border-box;
 }
 
-
-
+/* Save Button */
 .save-button {
   background-color: #4caf50; /* Green for save button */
   color: white;
@@ -125,6 +124,7 @@ body {
   background-color: #45a049; /* Darker green on hover */
 }
 
+/* Delete Button */
 .delete-button {
   background-color: #ff4d4d; /* Red for delete button */
   color: white;
@@ -149,18 +149,101 @@ body {
 /* Hide spinners for number inputs */
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 /* Increase the size of the Name input */
 input[name="name"] {
-    width: 150px;
+  width: 150px;
 }
 
 /* Make the Description input a rectangle box */
 input[name="description"] {
-    width: 325px;
-    height: 40px;
-    resize: none;
+  width: 325px;
+  height: 40px;
+  resize: none;
+}
+
+/* Mobile Responsiveness */
+@media only screen and (max-width: 768px) {
+  .section-header h1 {
+    font-size: 2rem;
+  }
+
+  .add-item-section h2, .existing-items-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .admin-menu-page {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .add-item-form table,
+  .menu-items-table {
+    width: 100%;
+    display: block;
+    overflow-x: auto;
+  }
+
+  .add-item-form th, .add-item-form td,
+  .menu-items-table th, .menu-items-table td {
+    padding: 8px;
+  }
+
+  .add-button, .save-button, .delete-button {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+  }
+
+  .menu-items-table img {
+    max-width: 80px;
+  }
+
+  .form-group input, select {
+    font-size: 0.95rem;
+    padding: 8px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .section-header h1 {
+    font-size: 1.7rem;
+  }
+
+  .add-item-section h2, .existing-items-section h2 {
+    font-size: 1.6rem;
+  }
+
+  .admin-menu-page {
+    width: 95%;
+    padding: 10px;
+  }
+
+  .add-item-form table,
+  .menu-items-table {
+    width: 100%;
+    display: block;
+    overflow-x: auto;
+  }
+
+  .add-item-form th, .add-item-form td,
+  .menu-items-table th, .menu-items-table td {
+    padding: 6px;
+  }
+
+  .add-button, .save-button, .delete-button {
+    font-size: 0.85rem;
+    padding: 5px 10px;
+  }
+
+  .menu-items-table img {
+    max-width: 70px;
+  }
+
+  .form-group input, select {
+    font-size: 0.9rem;
+    padding: 7px;
+  }
 }

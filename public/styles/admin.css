@@ -83,11 +83,7 @@ body {
 
 /* Submit Button */
 .btn {
-  background: linear-gradient(
-    to right,
-    #6c9bcf,
-    #a98fd3
-  ); /* Light blue to light purple */
+  background: linear-gradient(to right, #6c9bcf, #a98fd3); /* Light blue to light purple */
   color: white;
   padding: 10px 20px;
   border: none;
@@ -98,11 +94,7 @@ body {
 }
 
 .btn:hover {
-  background: linear-gradient(
-    to right,
-    #5a8abf,
-    #987fc3
-  ); /* Darker gradient on hover */
+  background: linear-gradient(to right, #5a8abf, #987fc3); /* Darker gradient on hover */
 }
 
 /* Login Prompt */
@@ -119,4 +111,71 @@ body {
 
 .login-prompt a:hover {
   color: #a98fd3; /* Light purple for hover */
+}
+
+/* Mobile Responsiveness */
+@media only screen and (max-width: 768px) {
+  .section-header h1 {
+    font-size: 2rem;
+  }
+
+  .section-header h2 {
+    font-size: 1.3rem;
+  }
+
+  .admin-registration {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .form-group label {
+    font-size: 1rem;
+  }
+
+  .form-group input {
+    font-size: 0.95rem;
+    padding: 8px;
+  }
+
+  .btn {
+    font-size: 0.95rem;
+    padding: 8px 16px;
+  }
+
+  .login-prompt {
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .section-header h1 {
+    font-size: 1.7rem;
+  }
+
+  .section-header h2 {
+    font-size: 1.2rem;
+  }
+
+  .admin-registration {
+    width: 95%;
+    padding: 10px;
+  }
+
+  .form-group label {
+    font-size: 0.95rem;
+  }
+
+  .form-group input {
+    font-size: 0.9rem;
+    padding: 6px;
+  }
+
+  .btn {
+    font-size: 0.9rem;
+    padding: 6px 14px;
+  }
+
+  .login-prompt {
+    font-size: 0.9rem;
+  }
 }

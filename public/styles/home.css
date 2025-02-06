@@ -16,8 +16,7 @@ body {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-h1,
-h2 {
+h1, h2 {
   color: #6c9bcf; /* Light blue for headings */
 }
 
@@ -31,25 +30,10 @@ a:hover {
   color: #a98fd3; /* Light purple for hover */
 }
 
-/* Error Message
-.error {
-  background-color: #ffebee;
-  color: #c62828;
-  padding: 10px;
-  border-radius: 4px;
-  margin: 20px auto;
-  max-width: 1200px;
-  text-align: center;
-} */
-
 /* Introduction Section */
 .intro {
   text-align: center;
-  background: linear-gradient(
-    to right,
-    #6c9bcf,
-    #a98fd3
-  ); /* Light blue to light purple */
+  background: linear-gradient(to right, #6c9bcf, #a98fd3); /* Light blue to light purple */
   color: white;
   padding: 60px 20px;
 }
@@ -177,4 +161,64 @@ a:hover {
 .custom-alert .message {
   flex: 1;
   padding-right: 10px;
+}
+
+/* Mobile Responsiveness */
+@media only screen and (max-width: 768px) {
+  .section {
+    padding: 30px 15px;
+  }
+
+  .intro h1 {
+    font-size: 2rem;
+  }
+
+  .intro p {
+    font-size: 1rem;
+  }
+
+  .intro .btn {
+    font-size: 0.9rem;
+    padding: 8px 18px;
+  }
+
+  .about p,
+  .services-list li,
+  .testimonial p {
+    font-size: 1rem;
+  }
+
+  .testimonials h2 {
+    font-size: 1.2rem;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .intro h1 {
+    font-size: 1.7rem;
+  }
+
+  .intro p {
+    font-size: 0.9rem;
+  }
+
+  .intro .btn {
+    font-size: 0.8rem;
+    padding: 7px 15px;
+  }
+
+  .about p,
+  .services-list li,
+  .testimonial p {
+    font-size: 0.95rem;
+  }
+
+  .testimonials h2 {
+    font-size: 1.1rem;
+  }
+
+  .custom-alert {
+    width: 90%;
+    padding: 15px;
+  }
 }

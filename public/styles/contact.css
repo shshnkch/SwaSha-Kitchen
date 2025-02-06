@@ -50,3 +50,50 @@ body {
 .contact-info strong {
   color: #6c9bcf; /* Light blue for emphasis */
 }
+
+/* Mobile Responsiveness */
+@media only screen and (max-width: 768px) {
+  .contact-page {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .section-header h1 {
+    font-size: 2rem;
+  }
+
+  .section-header p {
+    font-size: 1rem;
+  }
+
+  .contact-info p {
+    font-size: 1rem;
+  }
+
+  .contact-info strong {
+    font-size: 1.1rem;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .contact-page {
+    width: 95%;
+    padding: 10px;
+  }
+
+  .section-header h1 {
+    font-size: 1.7rem;
+  }
+
+  .section-header p {
+    font-size: 0.9rem;
+  }
+
+  .contact-info p {
+    font-size: 0.95rem;
+  }
+
+  .contact-info strong {
+    font-size: 1rem;
+  }
+}

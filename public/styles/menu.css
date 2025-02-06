@@ -151,3 +151,68 @@ form button:hover {
 .category-content.active {
   display: block;
 }
+
+/* Mobile Responsiveness */
+@media only screen and (max-width: 768px) {
+  .menu-page {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .section-header h1 {
+    font-size: 2rem;
+  }
+
+  table th,
+  table td {
+    padding: 8px;
+  }
+
+  .menu-item-image {
+    max-width: 80px; /* Slightly smaller images for mobile */
+  }
+
+  .quantity-control button {
+    padding: 4px 8px;
+  }
+
+  .quantity-control input {
+    width: 35px;
+  }
+
+  .view-cart a {
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .menu-page {
+    width: 95%;
+    padding: 10px;
+  }
+
+  .section-header h1 {
+    font-size: 1.8rem;
+  }
+
+  table th,
+  table td {
+    padding: 6px;
+  }
+
+  .menu-item-image {
+    max-width: 60px; /* Even smaller images for very small screens */
+  }
+
+  .quantity-control button {
+    padding: 3px 6px;
+  }
+
+  .quantity-control input {
+    width: 30px;
+  }
+
+  .view-cart a {
+    font-size: 0.9rem;
+  }
+}

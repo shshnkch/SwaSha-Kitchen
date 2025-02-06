@@ -1,4 +1,4 @@
-body {
+body { 
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
@@ -16,11 +16,7 @@ body {
 /* Section Header */
 .section-header {
   text-align: center;
-  background: linear-gradient(
-    to right,
-    #6c9bcf,
-    #a98fd3
-  ); /* Light blue to light purple */
+  background: linear-gradient(to right, #6c9bcf, #a98fd3); /* Light blue to light purple */
   color: white;
   padding: 40px 20px;
   border-radius: 8px;
@@ -81,11 +77,7 @@ body {
 /* Call to Action Section */
 #cta-section {
   text-align: center;
-  background: linear-gradient(
-    to right,
-    #6c9bcf,
-    #a98fd3
-  ); /* Light blue to light purple */
+  background: linear-gradient(to right, #6c9bcf, #a98fd3); /* Light blue to light purple */
   color: white;
   padding: 40px 20px;
   border-radius: 8px;
@@ -110,4 +102,89 @@ a {
 
 a:hover {
   color: #a98fd3; /* Light purple for hover */
+}
+
+/* Mobile Responsiveness */
+@media only screen and (max-width: 768px) {
+  .section-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .section-header p {
+    font-size: 1rem;
+  }
+
+  .section h2 {
+    font-size: 1.5rem;
+  }
+
+  .section p {
+    font-size: 1rem;
+  }
+
+  .feature-list li,
+  .values-list li,
+  .contact-list li {
+    font-size: 1rem;
+    padding: 8px;
+  }
+
+  #cta-section h2 {
+    font-size: 1.5rem;
+  }
+
+  #cta-section p {
+    font-size: 1.1rem;
+  }
+
+  .about-page {
+    padding: 15px;
+  }
+
+  /* Adjust padding in some sections */
+  .section {
+    padding: 15px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .section-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .section-header p {
+    font-size: 0.9rem;
+  }
+
+  .section h2 {
+    font-size: 1.3rem;
+  }
+
+  .section p {
+    font-size: 0.9rem;
+  }
+
+  .feature-list li,
+  .values-list li,
+  .contact-list li {
+    font-size: 0.9rem;
+    padding: 6px;
+  }
+
+  #cta-section h2 {
+    font-size: 1.3rem;
+  }
+
+  #cta-section p {
+    font-size: 1rem;
+  }
+
+  .about-page {
+    padding: 10px;
+  }
+
+  /* Further adjustments for very small screens */
+  .section {
+    padding: 10px;
+  }
 }

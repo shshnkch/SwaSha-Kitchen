@@ -91,3 +91,58 @@ table tr:hover {
 .status-delivered {
     color: #4CAF50; /* Green for Delivered */
 }
+
+/* Mobile Responsiveness */
+@media only screen and (max-width: 768px) {
+    .closed-orders-admin-page {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .section-header h1 {
+        font-size: 2rem;
+    }
+
+    table th, table td {
+        padding: 10px;
+    }
+
+    table th {
+        font-size: 1rem;
+    }
+
+    table td {
+        font-size: 0.95rem;
+    }
+
+    .items-list .item {
+        font-size: 0.95rem;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .closed-orders-admin-page {
+        width: 95%;
+        padding: 10px;
+    }
+
+    .section-header h1 {
+        font-size: 1.7rem;
+    }
+
+    table th, table td {
+        padding: 8px;
+    }
+
+    table th {
+        font-size: 0.95rem;
+    }
+
+    table td {
+        font-size: 0.9rem;
+    }
+
+    .items-list .item {
+        font-size: 0.9rem;
+    }
+}
