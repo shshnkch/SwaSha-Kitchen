@@ -19,13 +19,27 @@ function loadDarkModePreference() {
     }
 }
 
-// Event listener for the dark mode toggle
-document.getElementById('dark-mode-toggle').addEventListener('change', toggleDarkMode);
+// Wait for the DOM to load before adding event listeners
+document.addEventListener("DOMContentLoaded", function () {
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    if (darkModeToggle) {
+        darkModeToggle.addEventListener('change', toggleDarkMode);
+    }
 
-// Load dark mode preference when the page loads
-window.addEventListener('load', loadDarkModePreference);
+    // Attach toggleMenu function to hamburger menu
+    const hamburger = document.querySelector(".hamburger");
+    if (hamburger) {
+        hamburger.addEventListener("click", toggleMenu);
+    }
 
+    // Load dark mode preference when the page loads
+    loadDarkModePreference();
+});
+
+// Function to toggle menu
 function toggleMenu() {
     const navLinks = document.querySelector(".nav-links");
-    navLinks.classList.toggle("active");
+    if (navLinks) {
+        navLinks.classList.toggle("active");
+    }
 }
