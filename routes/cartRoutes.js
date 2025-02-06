@@ -9,7 +9,6 @@ router.post('/cart/add/:menuItemId', async (req, res, next) => {
     try {
         const {menuItemId} = req.params;
         const { quantity } = req.body;
-        console.log(quantity);
         const token = req.cookies.token;
         const menuItems = await MenuItem.find();
         if(!token){
