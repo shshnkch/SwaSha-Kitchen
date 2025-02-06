@@ -78,8 +78,10 @@ app.use((err, req, res, next) => {
 
 app.use((err, req, res, next) => {
     const status = err.status || 500;
-    const message = process.env.NODE_ENV === 'development' ? err.message || 'Internal Server Error' : 'Something went wrong!';
-    const stack = process.env.NODE_ENV === 'development' ? err.stack : null ;
+    // const message = process.env.NODE_ENV === 'development' ? err.message || 'Internal Server Error' : 'Something went wrong!';
+    // const stack = process.env.NODE_ENV === 'development' ? err.stack : null ;
+    const message = err.message;
+    const stack = err.stack;
     if(process.env.NODE_ENV === 'development'){
         console.error(err);
     }
