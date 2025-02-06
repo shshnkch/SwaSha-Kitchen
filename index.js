@@ -24,9 +24,20 @@ const PORT = process.env.PORT;
 
 // app.engine('ejs', ejsLayouts);
 
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+app.use(expressLayouts);
+
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
+
+mongoose.connect(process.env.MONGODB_URI)
+    .then(() => {
+        console.log('Connected to MongoDB');
+    }).catch((err) => {
+        console.error('MongoDB connection failed: ', err);
+    });
 
 app.use((req, res, next) => {
     const token = req.cookies.token;
@@ -43,18 +54,6 @@ app.use((req, res, next) => {
     }
     next();
 });
-
-// app.engine('ejs', ejsLayouts);
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
-app.use(expressLayouts);
-
-mongoose.connect(process.env.MONGODB_URI)
-    .then(() => {
-        console.log('Connected to MongoDB');
-    }).catch((err) => {
-        console.error('MongoDB connection failed: ', err);
-    });
 
 app.use(authRoutes);
 app.use(adminRoutes);
@@ -84,6 +83,7 @@ app.use((err, req, res, next) => {
     if(process.env.NODE_ENV === 'development'){
         console.error(err);
     }
+    console.error(err);
     res.status(status).render('error', { message, status, stack });
 });
 
