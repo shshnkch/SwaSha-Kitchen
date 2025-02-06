@@ -3,7 +3,7 @@ const MenuItem = require('../models/menuitems');
 const jwt = require('jsonwebtoken');
 const multer = require('multer');
 const cloudinary = require('cloudinary').v2;
-const multerStorageCloudinary = require('multer-storage-cloudinary').CloudinaryStorage;
+const { CloudinaryStorage } = require('multer-storage-cloudinary'); // Correctly import CloudinaryStorage
 const router = express.Router();
 
 // Set up Cloudinary configuration
@@ -14,8 +14,8 @@ cloudinary.config({
 });
 
 // Configure Multer storage to upload images to Cloudinary
-const storage = multerStorageCloudinary({
-    cloudinary: cloudinary,
+const storage = new CloudinaryStorage({
+    cloudinary: cloudinary, // Correctly pass Cloudinary instance here
     allowedFormats: ['jpg', 'jpeg', 'png', 'webp'],
     transformation: [{ width: 500, height: 500, crop: 'limit' }]  // Optional: Resize images
 });
@@ -51,8 +51,9 @@ router.get('/menu', async (req, res, next) => {
 router.post('/menu/add', upload.single('image'), async (req, res, next) => {
     try {
         const { name, price, description, category } = req.body;
-        const image = req.file ? req.file.path : null;  // Image URL from Cloudinary
+        const image = req.file ? req.file.path : null;  // Cloudinary image URL
 
+        // Create and save new menu item
         const newMenuItem = new MenuItem({
             name: name,
             price: price,
@@ -68,12 +69,12 @@ router.post('/menu/add', upload.single('image'), async (req, res, next) => {
     }
 });
 
-// Edit an existing menu item (support image update)
+// Edit an existing menu item with image upload to Cloudinary
 router.post('/menu/edit/:id', upload.single('image'), async (req, res, next) => {
     try {
         const { id } = req.params;
         const { name, price, description, category, isActive } = req.body;
-        const image = req.file ? req.file.path : null;  // Get Cloudinary image URL
+        const image = req.file ? req.file.path : null;  // Cloudinary image URL
 
         const updateData = {
             name,
